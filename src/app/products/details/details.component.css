@@ -1,0 +1,64 @@
+.container-div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0%;
+    height: 100%;
+   
+}
+
+#section-1 {
+    width: 25%;
+    height: 90vh;
+    padding: 10px; 
+    padding: 10px;
+    overflow: auto;
+}
+
+#section-2 {
+    width: 75%;
+    height: 90vh;
+    padding: 10px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+}
+h2 {
+    margin-bottom: 0px;
+}
+@media screen and (min-width: 900px) { 
+    #section-2 > #scroll {
+        overflow: auto;
+    }
+}
+
+@media screen and (max-width: 900px) { 
+   .container-div {
+       flex-direction: column-reverse;
+       align-items: center;
+    }
+    #section-1 {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+    .product-container{
+        overflow-x: auto;
+    }
+    #section-2{
+        width: 100%;
+        height: 100%;
+     }
+    #section-2 > #scroll {
+        overflow: hidden;
+    }
+}
+
+.product-container {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+}

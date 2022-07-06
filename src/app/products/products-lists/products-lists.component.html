@@ -1,0 +1,9 @@
+<mat-card class="center error-text" *ngIf="products.length === 0 && !loader">No products found to display</mat-card>
+
+<app-loader *ngIf="loader"></app-loader>
+
+<div class="product-container" *ngIf="products.length > 0 && !loader">
+    <ng-container *ngFor="let prod of products">
+        <app-product-item [product]="prod"></app-product-item>
+    </ng-container>
+</div>

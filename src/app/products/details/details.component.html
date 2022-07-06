@@ -1,0 +1,21 @@
+<app-loader *ngIf="loader"></app-loader>
+
+<div class="container-div" *ngIf="!loader && product">
+    <div id="section-1">
+      <h2>Similar category</h2>
+      <div class="product-container">
+        <ng-container *ngFor="let prod of catProducts">
+          <app-product-item [product]="prod"></app-product-item>
+        </ng-container>
+      </div>
+    </div>
+    <mat-divider [vertical]="true"></mat-divider>
+    <div id="section-2">
+        <app-product-details [product] = "product">
+          <mat-card-actions class="action-buttons">
+            <button mat-button color="warn" (click)="back()">back</button>
+            <button mat-button style="margin-left: auto" color="primary" (click)="checkOut(product)">Check out</button>
+        </mat-card-actions>
+        </app-product-details>
+    </div>
+</div>

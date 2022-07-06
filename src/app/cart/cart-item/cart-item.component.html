@@ -1,0 +1,28 @@
+<mat-tab-group>
+    <mat-tab label="Cart Details">
+        <div *ngIf="products.length">
+            <ng-container *ngFor="let prod of products">
+                <mat-card>
+                    <div [routerLink]="['/details/', prod.id]" id="pointer">
+                        <mat-card-title>{{prod?.title}}</mat-card-title>
+                        <mat-card-subtitle>{{prod?.category}}</mat-card-subtitle>
+                        <div class="two-section">
+                            <div class="image-conatiner">
+                                <img mat-card-image [src]="prod.image">
+                            </div>
+                            <div style="margin-left:auto">
+                                <strong>Price: ${{prod?.price}}</strong>
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <mat-card-actions align="end">
+                      <button mat-raised-button (click)="removeItem(prod.id)" color="warn">Remove</button>
+                      <button mat-raised-button color="primary" [routerLink]="['/usercart/buy', prod.id]">Buy now</button>
+                    </mat-card-actions>
+                </mat-card>    
+            </ng-container>
+        </div>
+    </mat-tab>
+    <mat-tab label="Order Details"> Order Details </mat-tab>
+</mat-tab-group>

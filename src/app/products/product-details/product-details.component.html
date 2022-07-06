@@ -1,0 +1,30 @@
+<mat-card id="scroll" style="height: 100%;">
+    <div id="pointer">
+      <mat-card-header>
+        <mat-card-title>{{product?.title}}</mat-card-title>
+        <mat-card-subtitle>{{product?.category}}</mat-card-subtitle>
+      </mat-card-header>
+      <div class="image-container">
+        <img mat-card-image [src]="product.image">
+      </div>
+      <mat-card-content>
+        <p>
+          {{product?.description}}
+        </p>
+      </mat-card-content>
+    </div>
+    <div>
+        <strong>
+            Ratings<br>
+            rate: {{product?.rating?.rate}} <br>
+            total Rating: {{product?.rating?.count}}
+        </strong>
+    </div>
+
+    <div style="text-align: right;"> 
+        <b>
+        <h2><strong>Price ${{product?.price}}</strong></h2>
+        </b> 
+    </div>
+    <ng-content></ng-content>
+  </mat-card>
