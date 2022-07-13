@@ -17,12 +17,12 @@
                     </div>
                    
                     <mat-card-actions align="end">
-                      <button mat-raised-button (click)="removeItem(prod.id)" color="warn">Remove</button>
+                      <button mat-raised-button (click)="removeItem(prod)" color="warn">Remove</button>
                       <button mat-raised-button color="primary" [routerLink]="['/usercart/buy', prod.id]">Buy now</button>
                     </mat-card-actions>
                 </mat-card>    
             </ng-container>
-            <mat-card *ngIf="products.length > 0" id="buy-all">
+            <mat-card *ngIf="products.length > 0" id="buy-all" class="alert alert-info">
                 <div class="column-1">
                     <h3> Total Quantity: {{products.length}}</h3>
                 </div>
@@ -32,7 +32,7 @@
             </mat-card>
         </div>
         <div *ngIf="products.length === 0">
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-warning" role="alert">
                 Yout cart is Empty    
             </div>
         </div>

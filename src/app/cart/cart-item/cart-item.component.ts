@@ -20,8 +20,8 @@ export class CartItemComponent implements OnInit {
     });
   }
 
-  public removeItem(id: number) {
-    this.cartSvc.removeItemFromCart(id);
+  public removeItem(prod: Product) {
+    this.cartSvc.removeItemFromCart([prod], 'Item removed from cart');
   }
 
   public buyAll() {
@@ -29,10 +29,10 @@ export class CartItemComponent implements OnInit {
       this.prodSvc.getProductById(element.id).subscribe(data => {
         const orderData: OrderProd = {...data, time: new Date(), order: 'successfull'};
         this.orderSvc.setOrders(orderData);
-        this.cartSvc.removeItemFromCart(element.id);
-        this.products = [];
         this.router.navigate(['/usercart/cart']);
-      })
-    })
+      });
+    });
+
+    this.cartSvc.removeItemFromCart(this.products, 'Order Placed');
   }
 }

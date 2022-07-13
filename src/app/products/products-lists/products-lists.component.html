@@ -1,5 +1,8 @@
-<mat-card class="center error-text" *ngIf="products.length === 0 && !loader">No products found to display</mat-card>
-
+<div *ngIf="products.length === 0  && !loader">
+    <div class="alert alert-warning" role="alert">
+        No product to display...!!! Thank you Visit Again..
+    </div>
+</div>
 <app-loader *ngIf="loader"></app-loader>
 
 <div class="product-container" *ngIf="products.length > 0 && !loader">

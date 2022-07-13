@@ -37,8 +37,7 @@ export class BuyingDetailsComponent implements OnInit {
     this.prodSvc.getProductById(id).subscribe(data => {
       const orderData: OrderProd = {...data, time: new Date(), order: 'successfull'};
       this.OrderSvc.setOrders(orderData);
-      this.cartSvc.removeItemFromCart(id);
-      this.product = <Product>{};
+      this.cartSvc.removeItemFromCart([data], 'Order Placed');
       this.router.navigate(['/usercart/cart']);
     });
   }

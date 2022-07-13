@@ -25,10 +25,11 @@ export class CartService {
     }
   }
 
-  public removeItemFromCart(id: number) {
-    const remainingItems = this.cartItems.getValue().filter(prod => prod.id !== id);
+  public removeItemFromCart(prods: Product[], message: string) {
+    const remainingItems = this.cartItems.getValue().filter(prod => prods.findIndex(x => prod.id === x.id) === -1);
     this.cartItems.next([...remainingItems]);
     this.cartLength.next(this.cartItems.getValue().length);
-    this.snackbarScv.openSnackbar('Item is deleted from your Cart', 'Dismiss')
+    this.snackbarScv.openSnackbar(message, 'Dismiss')
   }
+
 }
