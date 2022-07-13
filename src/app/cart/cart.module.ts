@@ -6,6 +6,7 @@ import { MaterialModule } from '../material/material.module';
 import { SharedModule } from '../shared/shared.module';
 import { BuyingDetailsComponent } from './buying-details/buying-details.component';
 import { ProductsModule } from '../products/products.module';
+import { OrderModule } from '../order/order.module';
 
 const routes: Routes = [
   { path: 'cart', component: CartItemComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
     MaterialModule,
     SharedModule,
     ProductsModule,
+    OrderModule,
   ]
 })
 export class CartModule { }

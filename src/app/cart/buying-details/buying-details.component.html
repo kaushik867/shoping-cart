@@ -1,6 +1,14 @@
-<app-product-details [product] = "product">
+<div *ngIf="(product | json) == '{}' && !loading">
+    <div class="alert alert-danger" role="alert">
+        Yout cart is Empty    
+    </div>
+</div>
+
+<app-loader *ngIf="loading"></app-loader>
+
+<app-product-details [product] = "product" *ngIf="(product | json) != '{}' && !loading">
     <mat-card-actions class="action-buttons">
         <button mat-button color="warn" [routerLink]="['/usercart/cart']">back</button>
-        <button mat-button style="margin-left: auto" color="primary">Proceed</button>
+        <button mat-button style="margin-left: auto" color="primary" (click)="placedOrder(product.id)">Proceed</button>
     </mat-card-actions>
 </app-product-details>

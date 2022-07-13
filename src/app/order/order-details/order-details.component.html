@@ -1,0 +1,13 @@
+
+<ng-container *ngFor="let order of orderDetails" >
+    <mat-card *ngIf="orderDetails.length > 0">
+        <img [src]="order.image">
+        <div class="column-1">
+           <h3>{{ order?.title }}</h3>
+           {{order?.time | date}}
+        </div>
+        <div class="column-2">
+            <strong>Price: ${{ order?.price }}</strong>
+        </div>
+    </mat-card>
+</ng-container>
