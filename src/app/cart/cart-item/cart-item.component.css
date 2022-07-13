@@ -18,3 +18,24 @@ img {
 #pointer {
     cursor: pointer;
 }
+
+.column-1 {
+    margin: 7px;
+}
+
+.column-2 {
+    margin: 7px;
+    margin-left: auto;
+}
+
+#buy-all {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+.alert {
+    text-align: center;
+    margin: 20px;
+}

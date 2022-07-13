@@ -40,7 +40,7 @@ export class BuyingDetailsComponent implements OnInit {
       this.cartSvc.removeItemFromCart(id);
       this.product = <Product>{};
       this.router.navigate(['/usercart/cart']);
-    })
+    });
   }
 
 }

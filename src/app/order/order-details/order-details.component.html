@@ -1,4 +1,10 @@
 
+<div *ngIf="orderDetails.length === 0">
+    <div class="alert alert-danger" role="alert">
+        No Order yet...!!!  
+    </div>
+</div>
+
 <ng-container *ngFor="let order of orderDetails" >
     <mat-card *ngIf="orderDetails.length > 0">
         <img [src]="order.image">

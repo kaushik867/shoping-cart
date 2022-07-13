@@ -16,3 +16,8 @@ img {
 .column-2 {
     margin-left: auto;
 }
+
+.alert {
+    text-align: center;
+    margin: 20px;
+}
