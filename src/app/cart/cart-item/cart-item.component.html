@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group (selectedTabChange)="tabChanged($event)" [selectedIndex]="selectedTabIndex">
     <mat-tab label="Cart Details">
         <div *ngIf="products.length > 0">
             <ng-container *ngFor="let prod of products">

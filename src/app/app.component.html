@@ -33,7 +33,7 @@
         </mat-icon>
         Profile
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="['usercart/cart']" [queryParams]="{ order: true}">
         <mat-icon class="icon">
           <span class="material-symbols-outlined">
             grading

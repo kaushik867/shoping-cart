@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrderProd, OrderService } from 'src/app/order/order.service';
 import { Product, ProductsService } from 'src/app/products/products.service';
 import { CartService } from '../cart.service';
@@ -11,13 +11,22 @@ import { CartService } from '../cart.service';
 })
 export class CartItemComponent implements OnInit {
   public products: Product[] = [];
+  public selectedTabIndex: number = 0;
   constructor(private cartSvc: CartService, private prodSvc: ProductsService, 
-    private orderSvc: OrderService, private router: Router) { }
+    private orderSvc: OrderService, private router: Router, private actRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.cartSvc.cartItems.subscribe(prods => {
       this.products = [...prods];
     });
+
+    this.actRoute.queryParams.subscribe(data=> {
+      if (data && data.order) {
+        this.selectedTabIndex = 1;
+      } else {
+        this.selectedTabIndex = 0;
+      }
+    })
   }
 
   public removeItem(prod: Product) {
@@ -34,5 +43,15 @@ export class CartItemComponent implements OnInit {
     });
 
     this.cartSvc.removeItemFromCart(this.products, 'Order Placed');
+  }
+
+  public tabChanged(event: any) {
+    this.selectedTabIndex = event.index;
+    if(event.index === 0) {
+      this.router.navigate(['.'], {relativeTo: this.actRoute});
+    } else {
+      this.router.navigate(['.'], {relativeTo: this.actRoute, queryParams: {order: true}});
+    }
+    
   }
 }
