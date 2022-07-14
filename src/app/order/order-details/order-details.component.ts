@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OrderProd, OrderService } from '../order.service';
+import { IOrderProd, OrderService } from '../order.service';
 
 @Component({
   selector: 'app-order-details',
@@ -9,7 +9,7 @@ import { OrderProd, OrderService } from '../order.service';
 })
 export class OrderDetailsComponent implements OnInit {
 
-  public orderDetails: OrderProd[] = [];
+  public orderDetails: IOrderProd[] = [];
   constructor(private orderSvc: OrderService, private router: Router) { }
 
   ngOnInit(): void {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingService } from 'src/app/shared/loader/loading.service';
-import { Product, ProductsService } from '../products.service';
+import { IProduct, ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-products-lists',
@@ -9,7 +9,7 @@ import { Product, ProductsService } from '../products.service';
   styleUrls: ['./products-lists.component.css']
 })
 export class ProductsListsComponent implements OnInit {
-  public products: Product[] = [];
+  public products: IProduct[] = [];
   public loader: boolean = false;
   constructor(private productsSvc: ProductsService, private router: Router, private loaderSvc: LoadingService) { }
 

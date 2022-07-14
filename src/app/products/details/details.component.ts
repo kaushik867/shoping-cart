@@ -3,7 +3,7 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { LoadingService } from 'src/app/shared/loader/loading.service';
 import { SnackBarService } from 'src/app/shared/snack-bar.service';
-import { Product, ProductsService } from '../products.service';
+import { IProduct, ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-details',
@@ -15,8 +15,8 @@ export class DetailsComponent implements OnInit {
   constructor(private productsSvs: ProductsService, private route: ActivatedRoute, 
     private router: Router, private loaderSvc: LoadingService, private cartSvc: CartService,
   ) { }
-  public product: Product = <Product>{};
-  public catProducts: Product[] = [];
+  public product: IProduct = <IProduct>{};
+  public catProducts: IProduct[] = [];
   public loader: boolean = false;
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -51,7 +51,7 @@ export class DetailsComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  public checkOut(product: Product) {
+  public checkOut(product: IProduct) {
    this.cartSvc.addToCart(product);
    this.router.navigate(['/usercart/cart']);
   }

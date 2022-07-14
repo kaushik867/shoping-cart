@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/cart/cart.service';
 import { SnackBarService } from 'src/app/shared/snack-bar.service';
-import { Product } from '../products.service';
+import { IProduct } from '../products.service';
 
 @Component({
   selector: 'app-product-item',
@@ -11,7 +11,7 @@ import { Product } from '../products.service';
 })
 export class ProductItemComponent implements OnInit {
   
-  @Input() product: Product = <Product>{};
+  @Input() product: IProduct = <IProduct>{};
   constructor(private router: Router, private cartSvc: CartService,) { }
 
   ngOnInit(): void {
@@ -23,7 +23,7 @@ export class ProductItemComponent implements OnInit {
       }
   }
 
-  public addToCart(product: Product) {
+  public addToCart(product: IProduct) {
     const save = this.cartSvc.addToCart(product);
   }
 }

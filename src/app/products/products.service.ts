@@ -9,14 +9,14 @@ import { Observable, throwError } from 'rxjs';
 export class ProductsService {
   constructor(private http: HttpClient) { }
 
-  public getAllProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>('https://fakestoreapi.com/products').pipe(
+  public getAllProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>('https://fakestoreapi.com/products').pipe(
       catchError(this.handleError)
     );
   }
 
-  public getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>('https://fakestoreapi.com/products/'+id).pipe(
+  public getProductById(id: number): Observable<IProduct> {
+    return this.http.get<IProduct>('https://fakestoreapi.com/products/'+id).pipe(
       catchError(this.handleError)
     )
   }
@@ -33,7 +33,7 @@ export class ProductsService {
 }
 
 
-export interface Product {
+export interface IProduct {
   id: number,
   title: string,
   qty: number,
@@ -41,11 +41,11 @@ export interface Product {
   price: number,
   category: string,
   image: string,
-  rating: Rating;
+  rating: IRating;
   
 }
 
-interface Rating {
+interface IRating {
   rate: number,
   count: number,
 }

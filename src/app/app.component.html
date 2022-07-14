@@ -25,7 +25,7 @@
       </mat-icon>
     </button>
     <mat-menu #profileOptions="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="['user/details']">
         <mat-icon class="icon">
           <span class="material-symbols-outlined">
             visibility
@@ -41,7 +41,7 @@
         </mat-icon>
         Orders
       </button>
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="['/']">
         <mat-icon class="icon">
           <span class="material-symbols-outlined">
             logout

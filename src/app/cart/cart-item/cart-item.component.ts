@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { OrderProd, OrderService } from 'src/app/order/order.service';
-import { Product, ProductsService } from 'src/app/products/products.service';
+import { IOrderProd, OrderService } from 'src/app/order/order.service';
+import { IProduct, ProductsService } from 'src/app/products/products.service';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { CartService } from '../cart.service';
   styleUrls: ['./cart-item.component.css']
 })
 export class CartItemComponent implements OnInit {
-  public products: Product[] = [];
+  public products: IProduct[] = [];
   public selectedTabIndex: number = 0;
   constructor(private cartSvc: CartService, private prodSvc: ProductsService, 
     private orderSvc: OrderService, private router: Router, private actRoute: ActivatedRoute) { }
@@ -29,14 +29,14 @@ export class CartItemComponent implements OnInit {
     })
   }
 
-  public removeItem(prod: Product) {
+  public removeItem(prod: IProduct) {
     this.cartSvc.removeItemFromCart([prod], 'Item removed from cart');
   }
 
   public buyAll() {
     this.products.forEach(element => {
       this.prodSvc.getProductById(element.id).subscribe(data => {
-        const orderData: OrderProd = {...data, time: new Date(), order: 'successfull'};
+        const orderData: IOrderProd = {...data, time: new Date(), order: 'successfull'};
         this.orderSvc.setOrders(orderData);
         this.router.navigate(['/usercart/cart']);
       });
