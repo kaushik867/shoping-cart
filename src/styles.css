@@ -10,8 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: bold;
 }
 
+
 @media screen and (max-width: 850px) {
-    .cdk-overlay-panel {
+    .cdk-overlay-pane {
         width: 100% !important;
     }
-  } 
+} 
