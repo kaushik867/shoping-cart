@@ -1,0 +1,39 @@
+<div class="login-container">
+    <div>
+        <div class="alert alert-primary" role="alert">
+           <strong>Log In</strong>  
+        </div>
+    </div>
+    <mat-card>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Enter your email" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter you password" formControlName="password" required>
+                    <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+                </mat-form-field>
+            </p>
+            <div *ngIf="error">
+                <div class="alert alert-danger" role="alert">
+                    <strong>{{error}}</strong>  
+                 </div>
+            </div>
+            <div class="footer">
+                <div>
+                    <button mat-button type="button" color="primary" (click)="openRegForm()">Register new user</button>
+                </div>
+                <div class="right">
+                    <button mat-button type="button" color="warn" mat-dialog-close>Cancel</button>
+                    <button mat-button color="primary" [disabled]="loginForm.invalid">Login</button>
+                </div> 
+            </div>
+            
+        </form>
+        
+    </mat-card>
+</div>

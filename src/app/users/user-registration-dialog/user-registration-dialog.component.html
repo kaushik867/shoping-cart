@@ -1,0 +1,49 @@
+<div class="reg-container">
+    <div>
+        <div class="alert alert-primary" role="alert">
+           <strong>Sign Up</strong>  
+        </div>
+    </div>
+    <mat-card>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label>
+                    <input matInput placeholder="Enter your Name" formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Enter your email" formControlName="email" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Date of Birth</mat-label>
+                    <input type="date" matInput placeholder="Enter your Date of Birth" formControlName="dob" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput placeholder="Enter your Phone Number" formControlName="phoneNumber" required>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter you password" formControlName="password" required>
+                    <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon></button>
+                </mat-form-field>
+            </p>
+            <div >
+                <div class="alert alert-danger" role="alert" *ngIf="signUpForm.invalid">
+                    <strong>Wrong input please check above</strong>  
+                 </div>
+            </div>
+            <div class="footer">
+                <div>
+                    <button mat-button type="button" color="primary" (click)="openLogIn()">Go to login</button>
+                </div>
+                <div class="right">
+                    <button mat-button type="button" color="warn" mat-dialog-close>Cancel</button>
+                    <button mat-button color="primary" [disabled]="signUpForm.invalid">Sign Up</button>
+                </div> 
+            </div>
+        </form>
+    </mat-card>
+</div>

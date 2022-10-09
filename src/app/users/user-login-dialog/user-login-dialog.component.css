@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.right {
+    margin-left: auto;
+}

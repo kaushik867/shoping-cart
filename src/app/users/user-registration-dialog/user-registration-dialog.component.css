@@ -1,0 +1,22 @@
+mat-form-field {
+    width: 100%;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.reg-container {
+    position: relative;
+}
+
+.alert-primary{
+    position: sticky;
+    top:0;
+}

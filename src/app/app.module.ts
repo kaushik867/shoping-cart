@@ -8,6 +8,7 @@ import { MaterialModule } from './material/material.module';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './shared/interceptor.service';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InterceptorService } from './shared/interceptor.service';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    UsersModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi:true}
